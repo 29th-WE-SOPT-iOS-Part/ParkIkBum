@@ -52,7 +52,6 @@
 				BC33DB4C4E3E561CC28854FA /* Pods-Youtube_Clone.debug.xcconfig */,
 				DA2DEAD95BCC3B36D86A6F98 /* Pods-Youtube_Clone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -409,7 +408,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U24ZACT97M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Youtube_Clone/Info.plist;
+				INFOPLIST_FILE = Youtube_Clone/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -438,7 +437,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U24ZACT97M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Youtube_Clone/Info.plist;
+				INFOPLIST_FILE = Youtube_Clone/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
