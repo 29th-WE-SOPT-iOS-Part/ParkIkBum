@@ -18,9 +18,7 @@ class CompleteLoginVC: UIViewController {
         $0.image = UIImage(named: "google")
     }
     
-   
-    
-    private let okButton = UIButton().then{
+    private lazy var okButton = UIButton().then{
         $0.setTitle("확인", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.layer.cornerRadius = 10
@@ -28,7 +26,6 @@ class CompleteLoginVC: UIViewController {
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         $0.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
         $0.addTarget(self, action: #selector(okButtonClicked(_:)), for: .touchUpInside)
-
     }
 
     override func viewDidLoad() {
@@ -38,7 +35,6 @@ class CompleteLoginVC: UIViewController {
     
     @objc private func okButtonClicked(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -66,7 +62,6 @@ class CompleteLoginVC: UIViewController {
             $0.top.equalTo(logoImageView.snp.bottom).offset(25)
             $0.leading.equalToSuperview().offset(50)
             $0.trailing.equalToSuperview().offset(-50)
-            $0.width.equalTo(150)
             $0.height.equalTo(200)
         }
         okButton.snp.makeConstraints{

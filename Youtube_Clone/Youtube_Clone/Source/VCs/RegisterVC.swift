@@ -27,6 +27,8 @@ class RegisterVC: UIViewController {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
         $0.placeholder = "  이름을 입력해주세요"
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
     }
     private let emailTextField = UITextField().then{
         $0.layer.borderWidth = 1
@@ -34,6 +36,8 @@ class RegisterVC: UIViewController {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
         $0.placeholder = "  이메일 또는 휴대전화"
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
     }
     private let pwdTextField = UITextField().then{
         $0.layer.borderWidth = 1
@@ -42,6 +46,8 @@ class RegisterVC: UIViewController {
         $0.clipsToBounds = true
         $0.placeholder = "  비밀번호 입력"
         $0.isSecureTextEntry = true
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
     }
     private let nextButton = UIButton().then{
         $0.setTitle("다음", for: .normal)
@@ -49,7 +55,7 @@ class RegisterVC: UIViewController {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        $0.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
+        $0.backgroundColor = UIColor.systemGray
         $0.addTarget(self, action: #selector(nextButtonClicked(_:)), for: .touchUpInside)
 
     }
@@ -79,8 +85,26 @@ class RegisterVC: UIViewController {
     @objc private func nextButtonClicked(_ sender: UIButton){
         guard let completeVC = UIStoryboard(name: "CompleteLogin", bundle: nil).instantiateViewController(withIdentifier: "CompleteLoginVC") as? CompleteLoginVC else {return}
         
-        completeVC.name = nameTextField.text!
-        self.present(completeVC, animated: true, completion: nil)
+        if (nameTextField.text != "" && emailTextField.text != "" && pwdTextField.text != ""){
+            nextButton.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
+            completeVC.name = nameTextField.text!
+            self.present(completeVC, animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+        else{
+            nextButton.backgroundColor = UIColor.systemGray
+
+        }
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any?) {
+        if (nameTextField.text != "" && emailTextField.text != "" && pwdTextField.text != ""){
+            nextButton.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
+        }
+        else{
+            nextButton.backgroundColor = UIColor.systemGray
+
+        }
     }
     
     func setLayout(){
