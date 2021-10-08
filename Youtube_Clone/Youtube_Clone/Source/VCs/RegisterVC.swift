@@ -50,6 +50,8 @@ class RegisterVC: UIViewController {
         $0.clipsToBounds = true
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         $0.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
+        $0.addTarget(self, action: #selector(nextButtonClicked(_:)), for: .touchUpInside)
+
     }
     private let checkButton = UIButton().then{
         $0.setBackgroundImage(UIImage(named: "unchecked"), for: .normal)
@@ -73,8 +75,12 @@ class RegisterVC: UIViewController {
             pwdTextField.isSecureTextEntry = true
             checkCnt = 0
         }
+    }
+    @objc private func nextButtonClicked(_ sender: UIButton){
+        guard let completeVC = UIStoryboard(name: "CompleteLogin", bundle: nil).instantiateViewController(withIdentifier: "CompleteLoginVC") as? CompleteLoginVC else {return}
         
-        
+        completeVC.name = nameTextField.text!
+        self.present(completeVC, animated: true, completion: nil)
     }
     
     func setLayout(){
