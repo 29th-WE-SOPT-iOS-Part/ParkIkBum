@@ -18,14 +18,20 @@ class CompleteLoginVC: UIViewController {
         $0.image = UIImage(named: "logo")
     }
     
-    private var okButton = UIButton().then{
+    private lazy var okButton = UIButton().then{
         $0.setTitle("확인", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         $0.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
-        $0.addTarget(self, action: #selector(okButtonClicked(_:)), for: .touchUpInside)
+    }
+    private lazy var anotherLoginButton = UIButton().then{
+        $0.setTitle("다른 계정으로 로그인하기", for: .normal)
+        $0.setTitleColor(UIColor.systemBlue, for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        $0.titleLabel?.textAlignment = .center
+        $0.addTarget(self, action: #selector(anotherLoginClicked(_:)), for: .touchUpInside)
     }
 
     override func viewDidLoad() {
@@ -33,7 +39,7 @@ class CompleteLoginVC: UIViewController {
         setLayout()
     }
     
-    @objc private func okButtonClicked(_ sender: UIButton){
+    @objc private func anotherLoginClicked(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -50,7 +56,7 @@ class CompleteLoginVC: UIViewController {
         self.view.addSubview(logoImageView)
         self.view.addSubview(hiLabel)
         self.view.addSubview(okButton)
-        
+        self.view.addSubview(anotherLoginButton)
         
         logoImageView.snp.makeConstraints{
             $0.top.equalToSuperview().offset(248)
@@ -69,6 +75,12 @@ class CompleteLoginVC: UIViewController {
             $0.leading.equalToSuperview().offset(22)
             $0.trailing.equalToSuperview().offset(-22)
             $0.height.equalTo(42)
+        }
+        anotherLoginButton.snp.makeConstraints{
+            $0.top.equalTo(okButton.snp.bottom).offset(23)
+            $0.leading.equalToSuperview().offset(113)
+            $0.trailing.equalToSuperview().offset(-113)
+            $0.height.equalTo(22)
         }
         
     }
