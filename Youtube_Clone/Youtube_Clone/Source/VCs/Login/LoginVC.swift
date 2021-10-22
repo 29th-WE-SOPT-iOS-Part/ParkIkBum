@@ -94,7 +94,6 @@ class LoginVC: UIViewController {
 //MARK: Function
     @objc private func registerButtonClicked(_ sender: UIButton){
         guard let registerVC = UIStoryboard(name: "Register", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC else {return}
-        
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
@@ -104,7 +103,12 @@ class LoginVC: UIViewController {
         if (nameTextField.text != "" && emailTextField.text != "" && pwdTextField.text != ""){
             nextButton.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
             completeVC.name = nameTextField.text!
+            completeVC.modalPresentationStyle = .overFullScreen
+            
             self.present(completeVC, animated: true, completion: nil)
+            nameTextField.text = ""
+            emailTextField.text = ""
+            pwdTextField.text = ""
         }
         else{
             nextButton.backgroundColor = UIColor.systemGray

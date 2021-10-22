@@ -25,6 +25,8 @@ class CompleteLoginVC: UIViewController {
         $0.clipsToBounds = true
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         $0.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
+        $0.addTarget(self, action: #selector(okButtonClicked(_:)), for: .touchUpInside)
+
     }
     private lazy var anotherLoginButton = UIButton().then{
         $0.setTitle("다른 계정으로 로그인하기", for: .normal)
@@ -42,9 +44,15 @@ class CompleteLoginVC: UIViewController {
     @objc private func anotherLoginClicked(_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
     }
+    @objc private func okButtonClicked(_ sender: UIButton){
+            guard let homeVC = UIStoryboard(name: "Tabbar", bundle: nil).instantiateViewController(withIdentifier: "TabbarVC") as? TabbarVC else {return}
+        homeVC.modalPresentationStyle = .overFullScreen
+        self.present(homeVC, animated: true, completion: nil)
+    }
     
     
     func setLayout(){
+        self.view.backgroundColor = UIColor.white
         let hiLabel = UILabel().then{
             $0.text = "\(name)님 \n환영합니다."
             $0.font = UIFont.boldSystemFont(ofSize: 26)

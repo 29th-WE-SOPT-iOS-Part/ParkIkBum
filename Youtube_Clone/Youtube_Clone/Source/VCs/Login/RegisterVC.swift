@@ -91,6 +91,7 @@ class RegisterVC: UIViewController {
         if (nameTextField.text != "" && emailTextField.text != "" && pwdTextField.text != ""){
             nextButton.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
             completeVC.name = nameTextField.text!
+            completeVC.modalPresentationStyle = .overFullScreen
             self.present(completeVC, animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
         }
