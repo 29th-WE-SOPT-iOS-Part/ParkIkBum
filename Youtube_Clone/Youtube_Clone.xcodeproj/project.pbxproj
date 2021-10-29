@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36631BF8272BD2B4001BEC5B /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631BF7272BD2B4001BEC5B /* UIView++.swift */; };
 		366D23F42710627600652491 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366D23F32710627600652491 /* Register.storyboard */; };
 		366D23F62710628800652491 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D23F52710628800652491 /* RegisterVC.swift */; };
 		366D23F827106D5300652491 /* CompleteLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366D23F727106D5300652491 /* CompleteLogin.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36631BF7272BD2B4001BEC5B /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 		366D23F32710627600652491 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		366D23F52710628800652491 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		366D23F727106D5300652491 /* CompleteLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompleteLogin.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		36631BF6272BD2A8001BEC5B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36631BF7272BD2B4001BEC5B /* UIView++.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		36A6020F2710078F002BBF40 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		36A6022F271007A5002BBF40 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				36631BF6272BD2A8001BEC5B /* Extension */,
 				36A60232271007FE002BBF40 /* VCs */,
 				36A60231271007EC002BBF40 /* Support */,
 			);
@@ -426,6 +437,7 @@
 				36F8F6E72722DDE600092338 /* AddsVC.swift in Sources */,
 				366D23FA27106D6200652491 /* CompleteLoginVC.swift in Sources */,
 				36F8F6C72721464E00092338 /* TabbarVC.swift in Sources */,
+				36631BF8272BD2B4001BEC5B /* UIView++.swift in Sources */,
 				36A6021C2710078F002BBF40 /* AppDelegate.swift in Sources */,
 				36A60237271008DE002BBF40 /* LoginVC.swift in Sources */,
 				36F8F6EB2722DE0500092338 /* SavesVC.swift in Sources */,
