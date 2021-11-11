@@ -46,6 +46,7 @@ struct RegisterService {
     private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         
         let decoder = JSONDecoder()
+        let defaults = UserDefaults.standard
         
         
         guard let decodedData = try? decoder.decode(LoginDataModel.self, from: data)
@@ -59,6 +60,7 @@ struct RegisterService {
         
         case 200:
             print("--- 회원가입 데이터 받기 성공")
+            defaults.set(decodedData.data?.name, forKey: "userName")
             return .success(decodedData)
         case 400: return .requestErr(decodedData)
         case 500: return .serverErr
