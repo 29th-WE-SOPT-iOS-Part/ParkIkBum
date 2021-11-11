@@ -131,6 +131,9 @@ class LoginVC: UIViewController {
             switch result{
             case .success(let data):
                 if let response = data as? LoginDataModel{
+                    DispatchQueue.global().async {
+                        UserDefaults.standard.set(response.data?.name, forKey: "userName")
+                    }
                     self.makeAlert(title: "로그인", message: response.message, okAction: {_ in self.present(completeVC, animated: true, completion: nil)}, completion: nil)
                 }
             case .requestErr(let msg):

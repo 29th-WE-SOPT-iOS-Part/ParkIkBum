@@ -10,9 +10,7 @@ import SnapKit
 import Then
 
 class CompleteLoginVC: UIViewController {
-    
-    var name: String = UserDefaults.standard.string(forKey: "userName") ?? "none"
-    
+        
     
     private let logoImageView = UIImageView().then{
         $0.image = UIImage(named: "logo")
@@ -54,7 +52,7 @@ class CompleteLoginVC: UIViewController {
     func setLayout(){
         self.view.backgroundColor = UIColor.white
         let hiLabel = UILabel().then{
-            $0.text = "\(name)님 \n환영합니다."
+            $0.text = "\(UserDefaults.standard.string(forKey: "userName") ?? "none")님 \n환영합니다."
             $0.font = UIFont.boldSystemFont(ofSize: 26)
             $0.numberOfLines = 2
             $0.lineBreakMode = .byCharWrapping

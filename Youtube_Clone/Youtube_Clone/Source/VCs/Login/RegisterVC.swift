@@ -84,6 +84,9 @@ class RegisterVC: UIViewController {
             case .success(let data):
                 if let response = data as? LoginDataModel{
                     self.makeAlert(title: "회원가입", message: response.message, okAction: {_ in self.present(completeVC, animated: true, completion: nil)}, completion: nil)
+                    DispatchQueue.global().async {
+                        UserDefaults.standard.set(response.data?.name, forKey: "userName")
+                    }
                 }
             case .requestErr(let msg):
                 if let request = msg as? LoginDataModel{
