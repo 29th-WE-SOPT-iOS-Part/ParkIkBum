@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36631BF8272BD2B4001BEC5B /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631BF7272BD2B4001BEC5B /* UIView++.swift */; };
+		36631C01272BDF31001BEC5B /* UITableView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C00272BDF31001BEC5B /* UITableView++.swift */; };
+		36631C04272BF533001BEC5B /* ShortsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C02272BF533001BEC5B /* ShortsTVC.swift */; };
+		36631C05272BF533001BEC5B /* ShortsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36631C03272BF533001BEC5B /* ShortsTVC.xib */; };
+		36631C09272BF68C001BEC5B /* ShortsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C07272BF68C001BEC5B /* ShortsCVC.swift */; };
+		36631C0A272BF68C001BEC5B /* ShortsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36631C08272BF68C001BEC5B /* ShortsCVC.xib */; };
+		36631C0D272BF9F9001BEC5B /* UICollectionView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C0C272BF9F9001BEC5B /* UICollectionView++.swift */; };
+		36631C10272C04F2001BEC5B /* VideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C0E272C04F2001BEC5B /* VideoTVC.swift */; };
+		36631C11272C04F2001BEC5B /* VideoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36631C0F272C04F2001BEC5B /* VideoTVC.xib */; };
 		366D23F42710627600652491 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366D23F32710627600652491 /* Register.storyboard */; };
 		366D23F62710628800652491 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D23F52710628800652491 /* RegisterVC.swift */; };
 		366D23F827106D5300652491 /* CompleteLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366D23F727106D5300652491 /* CompleteLogin.storyboard */; };
@@ -35,6 +44,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36631BF7272BD2B4001BEC5B /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
+		36631C00272BDF31001BEC5B /* UITableView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView++.swift"; sourceTree = "<group>"; };
+		36631C02272BF533001BEC5B /* ShortsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsTVC.swift; sourceTree = "<group>"; };
+		36631C03272BF533001BEC5B /* ShortsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortsTVC.xib; sourceTree = "<group>"; };
+		36631C07272BF68C001BEC5B /* ShortsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsCVC.swift; sourceTree = "<group>"; };
+		36631C08272BF68C001BEC5B /* ShortsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortsCVC.xib; sourceTree = "<group>"; };
+		36631C0C272BF9F9001BEC5B /* UICollectionView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView++.swift"; sourceTree = "<group>"; };
+		36631C0E272C04F2001BEC5B /* VideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTVC.swift; sourceTree = "<group>"; };
+		36631C0F272C04F2001BEC5B /* VideoTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTVC.xib; sourceTree = "<group>"; };
 		366D23F32710627600652491 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		366D23F52710628800652491 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		366D23F727106D5300652491 /* CompleteLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompleteLogin.storyboard; sourceTree = "<group>"; };
@@ -87,6 +105,66 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		36631BF6272BD2A8001BEC5B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36631BF7272BD2B4001BEC5B /* UIView++.swift */,
+				36631C00272BDF31001BEC5B /* UITableView++.swift */,
+				36631C0C272BF9F9001BEC5B /* UICollectionView++.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		36631BF9272BDE73001BEC5B /* TVCs */ = {
+			isa = PBXGroup;
+			children = (
+				36631C02272BF533001BEC5B /* ShortsTVC.swift */,
+				36631C0E272C04F2001BEC5B /* VideoTVC.swift */,
+			);
+			path = TVCs;
+			sourceTree = "<group>";
+		};
+		36631BFE272BDE9F001BEC5B /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				36631C0B272BF691001BEC5B /* CVCs */,
+				36631BFF272BDEAA001BEC5B /* TVCs */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		36631BFF272BDEAA001BEC5B /* TVCs */ = {
+			isa = PBXGroup;
+			children = (
+				36631C0F272C04F2001BEC5B /* VideoTVC.xib */,
+				36631C03272BF533001BEC5B /* ShortsTVC.xib */,
+			);
+			path = TVCs;
+			sourceTree = "<group>";
+		};
+		36631C06272BF674001BEC5B /* CVCs */ = {
+			isa = PBXGroup;
+			children = (
+				36631C07272BF68C001BEC5B /* ShortsCVC.swift */,
+			);
+			path = CVCs;
+			sourceTree = "<group>";
+		};
+		36631C0B272BF691001BEC5B /* CVCs */ = {
+			isa = PBXGroup;
+			children = (
+				36631C08272BF68C001BEC5B /* ShortsCVC.xib */,
+			);
+			path = CVCs;
+			sourceTree = "<group>";
+		};
+		36631C16272C0E1A001BEC5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		36A6020F2710078F002BBF40 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +195,10 @@
 		36A6022F271007A5002BBF40 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				36631C16272C0E1A001BEC5B /* Models */,
+				36631C06272BF674001BEC5B /* CVCs */,
+				36631BF9272BDE73001BEC5B /* TVCs */,
+				36631BF6272BD2A8001BEC5B /* Extension */,
 				36A60232271007FE002BBF40 /* VCs */,
 				36A60231271007EC002BBF40 /* Support */,
 			);
@@ -126,6 +208,7 @@
 		36A60230271007BA002BBF40 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				36631BFE272BDE9F001BEC5B /* Xibs */,
 				36A6023327100812002BBF40 /* Storyboards */,
 				36A6022927100790002BBF40 /* Info.plist */,
 				36A6022427100790002BBF40 /* Assets.xcassets */,
@@ -363,12 +446,15 @@
 				36F8F6D82722DD6B00092338 /* Adds.storyboard in Resources */,
 				36A6022827100790002BBF40 /* LaunchScreen.storyboard in Resources */,
 				36F8F6D52722DD4E00092338 /* Shorts.storyboard in Resources */,
+				36631C05272BF533001BEC5B /* ShortsTVC.xib in Resources */,
 				36A6022527100790002BBF40 /* Assets.xcassets in Resources */,
 				36F8F6D12721482100092338 /* Tabbar.storyboard in Resources */,
 				36A602232710078F002BBF40 /* Main.storyboard in Resources */,
 				366D23F42710627600652491 /* Register.storyboard in Resources */,
+				36631C11272C04F2001BEC5B /* VideoTVC.xib in Resources */,
 				36F8F6DB2722DD7E00092338 /* Subscribe.storyboard in Resources */,
 				366D23F827106D5300652491 /* CompleteLogin.storyboard in Resources */,
+				36631C0A272BF68C001BEC5B /* ShortsCVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,16 +509,22 @@
 			files = (
 				36A602202710078F002BBF40 /* ViewController.swift in Sources */,
 				36F8F6CB272146DD00092338 /* HomeVC.swift in Sources */,
+				36631C01272BDF31001BEC5B /* UITableView++.swift in Sources */,
+				36631C04272BF533001BEC5B /* ShortsTVC.swift in Sources */,
 				36F8F6E72722DDE600092338 /* AddsVC.swift in Sources */,
 				366D23FA27106D6200652491 /* CompleteLoginVC.swift in Sources */,
 				36F8F6C72721464E00092338 /* TabbarVC.swift in Sources */,
+				36631BF8272BD2B4001BEC5B /* UIView++.swift in Sources */,
 				36A6021C2710078F002BBF40 /* AppDelegate.swift in Sources */,
+				36631C09272BF68C001BEC5B /* ShortsCVC.swift in Sources */,
 				36A60237271008DE002BBF40 /* LoginVC.swift in Sources */,
 				36F8F6EB2722DE0500092338 /* SavesVC.swift in Sources */,
 				36A6021E2710078F002BBF40 /* SceneDelegate.swift in Sources */,
+				36631C0D272BF9F9001BEC5B /* UICollectionView++.swift in Sources */,
 				36F8F6E02722DDB100092338 /* ShortsVC.swift in Sources */,
 				366D23F62710628800652491 /* RegisterVC.swift in Sources */,
 				36F8F6E92722DDF800092338 /* SubscribeVC.swift in Sources */,
+				36631C10272C04F2001BEC5B /* VideoTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
