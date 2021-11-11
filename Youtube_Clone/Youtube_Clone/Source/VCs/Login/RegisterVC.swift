@@ -73,6 +73,30 @@ class RegisterVC: UIViewController {
     }
 
 //MARK: Func
+    
+    
+    
+    func Register(){
+        guard let completeVC = UIStoryboard(name: "CompleteLogin", bundle: nil).instantiateViewController(withIdentifier: "CompleteLoginVC") as? CompleteLoginVC else {return}
+        
+        RegisterService.shared.Register(email: emailTextField.text ?? "", password: pwdTextField.text ?? "", name: nameTextField.text ?? "") { [self] result in
+            switch result{
+            case .success(let data):
+                if let response = data as? LoginDataModel{
+                    self.makeAlert(title: "회원가입", message: response.message, okAction: {_ in self.present(completeVC, animated: true, completion: nil)}, completion: nil)
+                }
+            case .requestErr(let msg):
+                if let request = msg as? LoginDataModel{
+                    self.makeAlert(title: "회원가입", message: request.message, okAction: {_ in self.dismiss(animated: true, completion: nil)}, completion: nil)
+                }
+                print("requestErr")
+            default :
+                print("ERROR")
+            }
+        }
+    }
+
+    
     @objc private func isCheckedClicked(_ sender: UIButton){
         if checkCnt == 0{
         checkButton.setBackgroundImage(UIImage(named: "checked"), for: .normal)
@@ -86,14 +110,15 @@ class RegisterVC: UIViewController {
         }
     }
     @objc private func nextButtonClicked(_ sender: UIButton){
-        guard let completeVC = UIStoryboard(name: "CompleteLogin", bundle: nil).instantiateViewController(withIdentifier: "CompleteLoginVC") as? CompleteLoginVC else {return}
+//        guard let completeVC = UIStoryboard(name: "CompleteLogin", bundle: nil).instantiateViewController(withIdentifier: "CompleteLoginVC") as? CompleteLoginVC else {return}
         
         if (nameTextField.text != "" && emailTextField.text != "" && pwdTextField.text != ""){
             nextButton.backgroundColor = UIColor(red: 66.0/255.0, green: 134.0/255.0, blue: 244.0/255.0, alpha: 1.0)
-            completeVC.name = nameTextField.text!
-            completeVC.modalPresentationStyle = .overFullScreen
-            self.present(completeVC, animated: true, completion: nil)
-            self.navigationController?.popViewController(animated: true)
+//            completeVC.name = nameTextField.text!
+//            completeVC.modalPresentationStyle = .overFullScreen
+//            self.present(completeVC, animated: true, completion: nil)
+//            self.navigationController?.popViewController(animated: true)
+            Register()
         }
         else{
             nextButton.backgroundColor = UIColor.systemGray
