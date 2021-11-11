@@ -11,7 +11,7 @@ import Then
 
 class CompleteLoginVC: UIViewController {
     
-    var name:String = "none"
+    var name: String = UserDefaults.standard.string(forKey: "userName") ?? "none"
     
     
     private let logoImageView = UIImageView().then{
