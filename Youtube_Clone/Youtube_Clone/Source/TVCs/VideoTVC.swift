@@ -9,7 +9,18 @@ import UIKit
 import SnapKit
 import Then
 
+protocol isImageViewClickedDelegate{
+    func isImageViewClicked(title: String, detail: String, image: String)
+}
+
+
 class VideoTVC: UITableViewCell {
+    
+    var delegate: isImageViewClickedDelegate?
+    var title: String = ""
+    var subText: String = ""
+    var imageName: String = ""
+    
     
     private let videoImageView = UIImageView().then{
         $0.image = UIImage(named: "wesoptAndroidpart")
@@ -21,6 +32,8 @@ class VideoTVC: UITableViewCell {
     private let nameLabel = UILabel().then{
         $0.text = "ㅇㅇ"
         $0.font = UIFont.systemFont(ofSize: 15)
+        $0.numberOfLines = 2
+        $0.lineBreakMode = .byCharWrapping
         $0.textColor = UIColor.black
     }
     private let subLabel = UILabel().then{
@@ -31,6 +44,22 @@ class VideoTVC: UITableViewCell {
     private let moreButton = UIButton().then{
         $0.setBackgroundImage(UIImage(named: "moreMenuIcon"), for: .normal)
     }
+    
+    func setData(titleText: String, detailText: String, image: String){
+        nameLabel.text = titleText
+        title = titleText
+        subLabel.text = detailText
+        subText = detailText
+        videoImageView.image = UIImage(named: image)
+        imageName = image
+    }
+    
+    
+    @objc private func imageViewClicked(_ sender: UIImageView){
+        print("눌림")
+        delegate?.isImageViewClicked(title: title, detail: subText, image: imageName)
+    }
+    
     
     func setLayout(){
         contentView.addsubViews([videoImageView, profileImageView,nameLabel,subLabel,moreButton])
@@ -53,10 +82,10 @@ class VideoTVC: UITableViewCell {
             $0.width.height.equalTo(26)
         }
         nameLabel.snp.makeConstraints{
-            $0.top.equalTo(videoImageView.snp.bottom).offset(12)
+            $0.top.equalTo(profileImageView.snp.top).offset(0)
             $0.leading.equalTo(profileImageView.snp.trailing).offset(12)
             $0.trailing.equalTo(moreButton.snp.leading).offset(-19)
-            $0.height.equalTo(35)
+            $0.height.equalTo(50)
         }
         subLabel.snp.makeConstraints{
             $0.top.equalTo(nameLabel.snp.bottom).offset(4)
@@ -70,13 +99,16 @@ class VideoTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewClicked(_:)))
+        videoImageView.isUserInteractionEnabled = true
+        videoImageView.addGestureRecognizer(tapGesture)
         setLayout()
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
