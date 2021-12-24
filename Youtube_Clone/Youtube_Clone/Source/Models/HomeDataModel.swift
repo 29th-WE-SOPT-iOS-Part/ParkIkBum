@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct homeDataModel{
+    var titleText: String
+    var detailText: String
+    var imageName: String
+}

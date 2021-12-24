@@ -11,6 +11,10 @@ import Then
 
 class HomeVC: UIViewController {
     
+    var homeDataList: [homeDataModel] = []
+    var selectTitle: String = ""
+    var selectSub: String = ""
+    
     private let tableView = UITableView().then{
         $0.backgroundColor = UIColor.white
         $0.separatorStyle = .none
@@ -41,15 +45,24 @@ class HomeVC: UIViewController {
 //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataInit()
         navigationController?.isNavigationBarHidden = true
         setHeaderViewLayout()
         tableViewLayout()
     }
     
+    func dataInit(){
+        homeDataList.append(contentsOf: [
+            homeDataModel(titleText: "1차 iOS 세미나 : iOS 컴포넌트 이해, Xcode 기본 사용법, View 화면전환", detailText: "WE SOPT ・조회수 100만회 ・ 3주 전", imageName: "wesoptiOSPart"),
+            homeDataModel(titleText: "2차 iOS 세미나 : AutoLayout,StackView,TabBarController", detailText: "WE SOPT ・조회수 100만회 ・ 3주 전", imageName: "wesoptiOSPart"),
+            homeDataModel(titleText: "3차 iOS 세미나 : ScrollView, Delegate Pattern, TableView, CollectionView", detailText: "WE SOPT ・조회수 100만회 ・ 3주 전", imageName: "wesoptDesignPart"),
+            homeDataModel(titleText: "4차 iOS 세미나 : Cocoapods & Networking, REST API", detailText: "WE SOPT ・조회수 100만회 ・ 3주 전", imageName: "wesoptServerPart"),
+            homeDataModel(titleText: "7차 iOS 세미나 : Animation과 제스쳐, 데이터 전달 심화", detailText: "WE SOPT ・조회수 100만회 ・ 3주 전", imageName: "wesoptPlanPart")])
+    }
+    
     @objc private func profileButtonClicked(_ sender: UIButton){
         guard let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else {return}
         self.navigationController?.pushViewController(loginVC, animated: true)
-        print("dd")
     }
     
     
@@ -116,7 +129,7 @@ extension HomeVC: UITableViewDelegate{
     
 extension HomeVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return homeDataList.count + 1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.row == 0){
@@ -133,13 +146,27 @@ extension HomeVC: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShortsTVC") as! ShortsTVC
         let videoCell = tableView.dequeueReusableCell(withIdentifier: "VideoTVC") as! VideoTVC
         
+        videoCell.delegate = self
+        
         if(indexPath.row == 0){
             cell.selectionStyle = .none
             return cell
         }
         else{
+            videoCell.setData(titleText: homeDataList[indexPath.row-1].titleText, detailText: homeDataList[indexPath.row-1].detailText, image: homeDataList[indexPath.row-1].imageName)
             return videoCell
         }
+    }
+    
+    
+}
+
+extension HomeVC: isImageViewClickedDelegate{
+    func isImageViewClicked(title: String, detail: String, image: String) {
+        guard let detailVC = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
+        detailVC.setData(title: title, detail: detail, image: image)
+        detailVC.modalPresentationStyle = .overFullScreen
+        self.present(detailVC, animated: true, completion: nil)
     }
     
     
