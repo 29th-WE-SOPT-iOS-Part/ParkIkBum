@@ -8,4 +8,5 @@ target 'Youtube_Clone' do
   # Pods for Youtube_Clone
 pod 'SnapKit', '~> 5.0.0'
 pod 'Then'
+pod 'Alamofire'
 end

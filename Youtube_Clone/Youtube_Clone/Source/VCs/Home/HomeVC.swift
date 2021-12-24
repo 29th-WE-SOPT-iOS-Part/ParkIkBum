@@ -33,6 +33,7 @@ class HomeVC: UIViewController {
     }
     private let profileButton = UIButton().then{
         $0.setBackgroundImage(UIImage(named: "wesoptProfile"), for: .normal)
+        $0.addTarget(self, action: #selector(profileButtonClicked(_:)), for: .touchUpInside)
     }
 
     
@@ -44,6 +45,13 @@ class HomeVC: UIViewController {
         setHeaderViewLayout()
         tableViewLayout()
     }
+    
+    @objc private func profileButtonClicked(_ sender: UIButton){
+        guard let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else {return}
+        self.navigationController?.pushViewController(loginVC, animated: true)
+        print("dd")
+    }
+    
     
     func tableViewLayout(){
         
